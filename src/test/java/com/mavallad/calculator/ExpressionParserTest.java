@@ -49,6 +49,21 @@ public class ExpressionParserTest {
         Assertions.assertEquals(expected, parser.parse("( 2 + 3 )"));
     }
 
+    @Test
+    public void testParseDoubleParenthesis() {
+        Expression expected = new ExpressionTree(
+                Operation.MULTIPLY,
+                new ExpressionTree(
+                        Operation.SUM,
+                        new ExpressionTree(
+                                Operation.SUM,
+                                new Literal(2),
+                                new Literal(3)),
+                        new Literal(4)),
+                new Literal(2));
+        Assertions.assertEquals(expected, parser.parse("( ( 2 + 3 ) + 4 ) * 2"));
+    }
+
     @Test()
     public void testParseExpressionWithLetter() {
         Assertions.assertThrows(InvalidExpressionException.class, () -> parser.parse("a + 3"));
