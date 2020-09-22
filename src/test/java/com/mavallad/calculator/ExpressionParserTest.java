@@ -73,4 +73,9 @@ public class ExpressionParserTest {
     public void testParseExpressionWithEmptyTokens() {
         Assertions.assertThrows(InvalidExpressionException.class, () -> parser.parse(" "));
     }
+
+    @Test()
+    public void testParseExpressionWithMissingOperand() {
+        Assertions.assertThrows(InvalidExpressionException.class, () -> parser.parse("4 + "));
+    }
 }
