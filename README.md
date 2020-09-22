@@ -9,3 +9,4 @@ The precedence of multiplication, division over addition, substraction does not 
 ## Missing parts
 - Better tokenizer so no spaces are required.
 - Implement precedence of multiplication and division.
+- Better error reporting of invalid expressions.
