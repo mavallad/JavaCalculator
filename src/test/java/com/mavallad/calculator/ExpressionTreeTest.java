@@ -8,7 +8,7 @@ public class ExpressionTreeTest {
     @Test
     // Calculation of 4 +2 == 6
     public void testCalculateSimpleSum() {
-        Expression expression = new ExpressionTree(Operation.SUM, new Literal(4), new Literal(2));
+        Expression expression = new ExpressionTree(Operation.ADD, new Literal(4), new Literal(2));
         Assertions.assertEquals(6, expression.calculate());
     }
 
@@ -16,7 +16,7 @@ public class ExpressionTreeTest {
     // Calculation of 4 + (2 - 7) == -1
     public void testCalculateSumAndSubstract() {
         Expression expression = new ExpressionTree(
-                Operation.SUM,
+                Operation.ADD,
                 new Literal(4),
                 new ExpressionTree(
                         Operation.SUBSTRACT,
@@ -32,7 +32,7 @@ public class ExpressionTreeTest {
                 Operation.MULTIPLY,
                 new Literal(4),
                 new ExpressionTree(
-                        Operation.SUM,
+                        Operation.ADD,
                         new Literal(2),
                         new Literal(7)));
         Assertions.assertEquals(36, expression.calculate());

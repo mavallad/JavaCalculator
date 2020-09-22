@@ -18,7 +18,7 @@ public class ExpressionParserTest {
     public void testParseSumAndSubstract() {
         Expression expected = new ExpressionTree(Operation.SUBSTRACT,
                 new ExpressionTree(
-                        Operation.SUM,
+                        Operation.ADD,
                         new Literal(2),
                         new Literal(5)),
                 new Literal(4));
@@ -30,7 +30,7 @@ public class ExpressionParserTest {
         Expression expected = new ExpressionTree(
                 Operation.MULTIPLY,
                 new ExpressionTree(
-                        Operation.SUM,
+                        Operation.ADD,
                         new Literal(2),
                         new ExpressionTree(
                                 Operation.SUBSTRACT,
@@ -43,7 +43,7 @@ public class ExpressionParserTest {
     @Test
     public void testParseExpressionWithParenthesis() {
         Expression expected = new ExpressionTree(
-                Operation.SUM,
+                Operation.ADD,
                 new Literal(2),
                 new Literal(3));
         Assertions.assertEquals(expected, parser.parse("( 2 + 3 )"));
@@ -54,9 +54,9 @@ public class ExpressionParserTest {
         Expression expected = new ExpressionTree(
                 Operation.MULTIPLY,
                 new ExpressionTree(
-                        Operation.SUM,
+                        Operation.ADD,
                         new ExpressionTree(
-                                Operation.SUM,
+                                Operation.ADD,
                                 new Literal(2),
                                 new Literal(3)),
                         new Literal(4)),
