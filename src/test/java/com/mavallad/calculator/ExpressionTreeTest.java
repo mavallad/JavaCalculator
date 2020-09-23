@@ -26,7 +26,6 @@ public class ExpressionTreeTest {
     }
 
     @Test
-    // Calculation of 4 * (2 + 7) == -1
     public void testCalculateSumAndMultiply() {
         Expression expression = new ExpressionTree(
                 Operation.MULTIPLY,
